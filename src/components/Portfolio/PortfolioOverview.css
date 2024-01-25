@@ -7,7 +7,19 @@
   .stock-items-container {
     width: 40%;
     margin-right: 20px; /* Add some space between the stock items and the graph */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  .stock-items-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
   
   .performance-graph-container {
     width: 60%;

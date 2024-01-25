@@ -7,10 +7,12 @@ const PortfolioOverview = ({ portfolioData, graphData }) => {
   return (
     <div className="portfolio-overview">
       <div className="stock-items-container">
-      <h2>Portfolio Overview</h2>
-        {portfolioData.map(stock => (
-          <StockItem key={stock.id} stock={stock} />
-        ))}
+        <div class="stock-items-wrapper">
+          <h2>Portfolio Overview</h2>
+          {portfolioData.map(stock => (
+            <StockItem key={stock.id} stock={stock} />
+          ))}
+        </div>
       </div>
       <div className="performance-graph-container">
         <PerformanceGraph data={graphData} />
