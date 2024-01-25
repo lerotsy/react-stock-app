@@ -1,31 +1,61 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/UserManagement/Header';
 import Login from './components/UserManagement/Login';
+import Header from './components/UserManagement/Header';
+import PortfolioOverview from './components/Portfolio/PortfolioOverview';
 import AuthService from './components/UserManagement/AuthService';
+import './App.css';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [portfolioData, setPortfolioData] = useState([]);
+  const [graphData, setGraphData] = useState([]);
+
+  // Mock portfolio data
+  const samplePortfolioData = [
+    { id: 1, name: "AAPL", quantity: 10, currentPrice: 150 },
+    { id: 2, name: "MSFT", quantity: 15, currentPrice: 250 },
+  ];
+
+  const sampleGraphData = [
+    { date: "2023-01-01", value: 1000 },
+    { date: "2023-01-08", value: 1200 },
+    { date: "2023-01-14", value: 1140 },
+    { date: "2023-01-18", value: 1240 },
+    { date: "2023-02-01", value: 1500 },
+  ];
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
     if (user) {
       setCurrentUser(user);
+      // will integrate reall backend API later
+      setPortfolioData(samplePortfolioData);
+      setGraphData(sampleGraphData);
     }
   }, []);
 
   const handleLoginSuccess = () => {
     setCurrentUser(AuthService.getCurrentUser());
+    // Mock setting portfolio data on login
+    setPortfolioData(samplePortfolioData);
+    setGraphData(sampleGraphData);
   };
 
   const handleLogout = () => {
     AuthService.logout();
     setCurrentUser(null);
+    // Clear portfolio data on logout
+    setPortfolioData([]);
+    setGraphData([]);
   };
 
   return (
     <div className="App">
       {currentUser ? (
-        <Header user={currentUser} onLogout={handleLogout} />
+        <>
+          <Header user={currentUser} onLogout={handleLogout} />
+          <PortfolioOverview portfolioData={portfolioData} graphData={graphData} />
+        </>
       ) : (
         <Login onLogin={handleLoginSuccess} />
       )}
