@@ -1,0 +1,13 @@
+/* src/components/Portfolio/Stock/StockItem.css */
+.stock-item {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .stock-item:hover {
+    background-color: #f0f0f0;
+  }
+  
