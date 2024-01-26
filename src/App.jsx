@@ -12,10 +12,31 @@ function App() {
 
   // Mock portfolio data
   const samplePortfolioData = [
-    { id: 1, name: "AAPL", quantity: 10, currentPrice: 150 },
-    { id: 2, name: "MSFT", quantity: 15, currentPrice: 250 },
+    {
+      id: 1,
+      name: "AAPL",
+      quantity: 10,
+      currentPrice: 150,
+      graphData: [
+        { date: "2023-01-01", value: 130 },
+        { date: "2023-01-15", value: 140 },
+        { date: "2023-02-01", value: 155 },
+      ],
+    },
+    {
+      id: 2,
+      name: "MSFT",
+      quantity: 15,
+      currentPrice: 250,
+      graphData: [
+        { date: "2023-01-01", value: 230 },
+        { date: "2023-01-15", value: 240 },
+        { date: "2023-02-01", value: 265 },
+      ],
+    },
   ];
 
+  // fake data, will be fed from API in the future
   const sampleGraphData = [
     { date: "2023-01-01", value: 1000 },
     { date: "2023-01-08", value: 1200 },
