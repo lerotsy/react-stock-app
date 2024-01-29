@@ -3,7 +3,7 @@ import StockItem from './Stock/StockItem';
 import PerformanceGraph from './PerformanceGraph/PerformanceGraph';
 import './PortfolioOverview.css';
 
-const PortfolioOverview = ({ portfolioData, graphData }) => {
+const PortfolioOverview = ({ portfolioData, hottestStocksData,  graphData }) => {
   return (
     <div className="portfolio-overview">
       <div className="stock-items-container">
@@ -16,6 +16,12 @@ const PortfolioOverview = ({ portfolioData, graphData }) => {
       </div>
       <div className="performance-graph-container">
         <PerformanceGraph data={graphData} />
+      </div>
+      <div className="hottest-stocks-section">
+        <h2>Hottest Stocks</h2>
+        {hottestStocksData.map(stock => (
+          <StockItem key={stock.id} stock={stock} isHottestStock={true} />
+        ))}
       </div>
     </div>
   );

@@ -36,6 +36,26 @@ function App() {
     },
   ];
 
+  const hottestStocksData = [
+    {
+      id: 1,
+      symbol: "TSLA",
+      name: "Tesla Inc",
+      currentPrice: 1020.50,
+      priceIncrease: 20.50,
+      percentageIncrease: 2.05,
+    },
+    {
+      id: 2,
+      symbol: "AMZN",
+      name: "Amazon.com Inc",
+      currentPrice: 3050.30,
+      priceIncrease: 50.30,
+      percentageIncrease: 1.67,
+    },
+  ];
+  
+
   // fake data, will be fed from API in the future
   const sampleGraphData = [
     { date: "2023-01-01", value: 1000 },
@@ -75,7 +95,7 @@ function App() {
       {currentUser ? (
         <>
           <Header user={currentUser} onLogout={handleLogout} />
-          <PortfolioOverview portfolioData={portfolioData} graphData={graphData} />
+          <PortfolioOverview portfolioData={portfolioData} hottestStocksData={hottestStocksData} graphData={graphData} />
         </>
       ) : (
         <Login onLogin={handleLoginSuccess} />
