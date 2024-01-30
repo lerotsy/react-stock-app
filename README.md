@@ -12,8 +12,8 @@ This is the frontend portion of a stock portfolio management application. It pro
 
 ## Technologies Used
 
-- **React**: A JavaScript library for building user interfaces.
-- **Recharts**: A composable charting library built on React components.
+- **ReactJs**: Version 18.2.0.
+- **Recharts**: Version 2.10.4 (A charting library I use for the graphs).
 
 ## Setup and Installation
 
@@ -24,3 +24,6 @@ git clone https://github.com/your-username/stock-portfolio-app.git
 cd stock-portfolio-app
 npm install
 npm start
+```
+
+The project should be running at http://localhost:3000/
