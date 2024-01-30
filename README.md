@@ -1,6 +1,7 @@
 # Stock Portfolio Management App - Frontend
 
-This is the frontend portion of a stock portfolio management application designed to provide users with a seamless experience for managing their stock investments. It offers a streamlined interface for users to interact with their portfolio, observe market trends, and execute trades.
+This is the frontend portion of a stock portfolio management application. It provides an interface for users to interact with their portfolio, view market trends, and execute trades. Currently, the data presented is simulated and hardcoded for demonstration purposes. The backend API, responsible for actual data processing and storage, is planned to be developed and maintained in a separate repository at a later stage.
+
 
 ## Features
 
