@@ -4,9 +4,9 @@ import './Header.css';
 
 const Header = ({ user, onLogout }) => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', backgroundColor: '#eee' }}>
-      <span>Hello, {user}</span>
-      <button onClick={onLogout}>Logout</button>
+    <div className='header-container' >
+      <span className='header-greeting'>Hello, {user}</span>
+      <button className='header-logout-button' onClick={onLogout}>Logout</button>
     </div>
   );
 };
