@@ -7,7 +7,7 @@ const PortfolioOverview = ({ portfolioData, hottestStocksData,  graphData }) => 
   return (
     <div className="portfolio-overview">
       <div className="stock-items-container">
-        <div class="stock-items-wrapper">
+        <div className="stock-items-wrapper">
           <h2>Portfolio Overview</h2>
           {portfolioData.map(stock => (
             <StockItem key={stock.id} stock={stock} />
