@@ -1,0 +1,71 @@
+
+.stock-order {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    max-width: 300px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .order-type-toggle {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .order-type-toggle button {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .order-type-toggle button.active {
+    border-bottom: 2px solid #007bff;
+    background: #007bff;
+    color: #ffffff;
+  }
+  
+  /* Style for the input field and increment/decrement buttons */
+  .share-quantity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .share-quantity button {
+    padding: 10px;
+    background: #e1e1e1;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .share-quantity input {
+    flex: 1;
+    text-align: center;
+    width: 50px;
+    margin: 0 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Style for the submit button */
+  .submit-order-button {
+    padding: 10px;
+    background: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-order-button:hover {
+    background: #218838;
+  }
+  

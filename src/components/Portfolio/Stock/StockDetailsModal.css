@@ -23,3 +23,25 @@
     max-width: 500px;
   }
   
+
+.stock-details {
+  float: left;
+  width: 50%;
+}
+
+.order-form {
+  float: right;
+  width: 35%;
+}
+
+/* Clearfix to contain the floats */
+.modal-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.stock-details-modal {
+  display: flex;
+  justify-content: space-between;
+}
