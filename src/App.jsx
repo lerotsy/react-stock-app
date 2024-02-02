@@ -97,7 +97,7 @@ function App() {
     <div className="App">
       {currentUser ? (
         <>
-          <Header user={currentUser.email} onLogout={handleLogout} />
+          <Header user={currentUser.username} onLogout={handleLogout} />
           <PortfolioOverview portfolioData={portfolioData} hottestStocksData={hottestStocksData} graphData={graphData} />
         </>
       ) : (

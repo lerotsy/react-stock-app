@@ -32,7 +32,8 @@ const Login = ({ onLogin }) => {
       const data = await response.json();
       localStorage.setItem('token', data.token);
       let userData = {
-        'email': loginPayload.email,
+        'email': data.email,
+        'username': data.username,
         'token': data.token
       };
       onLogin(userData);
