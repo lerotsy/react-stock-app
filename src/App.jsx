@@ -66,17 +66,20 @@ function App() {
   ];
 
   useEffect(() => {
-    const user = AuthService.getCurrentUser();
+    const user = localStorage.getItem('user');
     if (user) {
-      setCurrentUser(user);
+      const userDetails = JSON.parse(user);
+      setCurrentUser(userDetails);
       // will integrate reall backend API later
-      setPortfolioData(samplePortfolioData);
-      setGraphData(sampleGraphData);
+      // setPortfolioData(samplePortfolioData);
+      // setGraphData(sampleGraphData);
     }
   }, []);
 
-  const handleLoginSuccess = () => {
-    setCurrentUser(AuthService.getCurrentUser());
+  const handleLoginSuccess = (userDetails) => {
+    // setCurrentUser(AuthService.getCurrentUser());
+    setCurrentUser(userDetails);
+    localStorage.setItem('user', JSON.stringify(userDetails));
     // Mock setting portfolio data on login
     setPortfolioData(samplePortfolioData);
     setGraphData(sampleGraphData);
@@ -94,7 +97,7 @@ function App() {
     <div className="App">
       {currentUser ? (
         <>
-          <Header user={currentUser} onLogout={handleLogout} />
+          <Header user={currentUser.email} onLogout={handleLogout} />
           <PortfolioOverview portfolioData={portfolioData} hottestStocksData={hottestStocksData} graphData={graphData} />
         </>
       ) : (
