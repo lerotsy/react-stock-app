@@ -5,6 +5,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   margin: 8px 0;
+  width: 60%;
   cursor: pointer;
   background-color: lightblue;
   transition: box-shadow 0.2s ease-in-out;

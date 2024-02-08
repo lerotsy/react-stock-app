@@ -21,6 +21,14 @@
     width: 100%;
 }
 
+.hottest-stocks {
+  width: 30%;
+  margin-right: 2%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
   
   .performance-graph-container {
     width: 60%;
