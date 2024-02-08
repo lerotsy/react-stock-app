@@ -1,11 +1,12 @@
 .portfolio-overview {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    width: 100%;
+    margin-right: 2%;
   }
   
   .stock-items-container {
-    width: 40%;
+    width: 30%;
     margin-right: 20px; /* Add some space between the stock items and the graph */
     display: flex;
     justify-content: center;

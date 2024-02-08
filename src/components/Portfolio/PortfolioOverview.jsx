@@ -17,7 +17,7 @@ const PortfolioOverview = ({ portfolioData, hottestStocksData,  graphData }) => 
       <div className="performance-graph-container">
         <PerformanceGraph data={graphData} />
       </div>
-      <div className="hottest-stocks-section">
+      <div className="hottest-stocks">
         <h2>Hottest Stocks</h2>
         {hottestStocksData.map(stock => (
           <StockItem key={stock.id} stock={stock} isHottestStock={true} />
