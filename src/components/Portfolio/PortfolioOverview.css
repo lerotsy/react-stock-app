@@ -3,6 +3,7 @@
     justify-content: space-between;
     width: 100%;
     margin-right: 2%;
+    flex-wrap: wrap;
   }
   
   .stock-items-container {
@@ -33,4 +34,12 @@
   .performance-graph-container {
     width: 60%;
   }
+
+@media (max-width: 768px) {
+  .stock-items-container, .performance-graph-container, .hottest-stocks {
+    flex-basis: 100%; 
+    margin-bottom: 10px;
+  }
+}
+
   
