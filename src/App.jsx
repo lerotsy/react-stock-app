@@ -4,12 +4,22 @@ import Header from './components/UserManagement/Header';
 import PortfolioOverview from './components/Portfolio/PortfolioOverview';
 import AuthService from './components/UserManagement/AuthService';
 import './App.css';
+import SearchBox from './components/Portfolio/SearchBox';
+
+const useMockData = process.env.REACT_APP_USE_MOCK_DATA === 'true';
+const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [portfolioData, setPortfolioData] = useState([]);
   const [graphData, setGraphData] = useState([]);
+  const [hottestStocksData, setHottestStocksData] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
+
+  const handleSearchResult = (results) => {
+    setSearchResults(results);
+  };
   // Mock portfolio data
   const samplePortfolioData = [
     {
@@ -36,7 +46,7 @@ function App() {
     },
   ];
 
-  const hottestStocksData = [
+  const sampleHottestStocksData = [
     {
       id: 1,
       symbol: "TSLA",
@@ -64,6 +74,42 @@ function App() {
     { date: "2023-01-18", value: 1240 },
     { date: "2023-02-01", value: 1500 },
   ];
+
+  useEffect(() => {
+    if (useMockData) {
+      setPortfolioData(samplePortfolioData);
+      setGraphData(sampleGraphData);
+    } else {
+      // Fetch Portfolio Data
+      const fetchPortfolioData = async () => {
+        try {
+          const response = await fetch(`${baseUrl}/portfolioData`);
+          if (!response.ok) throw new Error('Failed to fetch portfolio data');
+          const data = await response.json();
+          setPortfolioData(data);
+        } catch (error) {
+          console.error("Error fetching portfolio data:", error);
+        }
+      };
+
+      // Fetch Stock History
+      const fetchGraphData = async () => {
+        try {
+          const response = await fetch(`${baseUrl}/stockHistory`);
+          if (!response.ok) throw new Error('Failed to fetch stock history');
+          const data = await response.json();
+          setGraphData(data);
+        } catch (error) {
+          console.error("Error fetching stock history:", error);
+        }
+      };
+
+      if (currentUser) {
+        fetchPortfolioData();
+        fetchGraphData();
+      }
+    }
+  }, [currentUser, useMockData]); 
 
   useEffect(() => {
     const user = localStorage.getItem('user');
@@ -98,7 +144,8 @@ function App() {
       {currentUser ? (
         <>
           <Header user={currentUser.username} onLogout={handleLogout} />
-          <PortfolioOverview portfolioData={portfolioData} hottestStocksData={hottestStocksData} graphData={graphData} />
+          <SearchBox onSearchResult={handleSearchResult} />
+          <PortfolioOverview portfolioData={portfolioData} hottestStocksData={sampleHottestStocksData} graphData={graphData} />
         </>
       ) : (
         <Login onLogin={handleLoginSuccess} />
