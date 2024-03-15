@@ -13,7 +13,14 @@ const SearchBox = ({ onSearchResult }) => {
     const searchUrl = `${baseUrl}/search/${encodeURIComponent(searchTerm)}`;
 
     try {
-      const response = await fetch(searchUrl);
+      const token = localStorage.getItem('token');
+      const response = await fetch(searchUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });
       debugger
       if (!response.ok) throw new Error('Search failed');
 
