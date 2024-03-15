@@ -15,7 +15,9 @@ const PortfolioOverview = ({ portfolioData, hottestStocksData,  graphData }) => 
         </div>
       </div>
       <div className="performance-graph-container">
+      {/*
         <PerformanceGraph data={graphData} />
+        */}
       </div>
       <div className="hottest-stocks">
         <h2>Hottest Stocks</h2>
