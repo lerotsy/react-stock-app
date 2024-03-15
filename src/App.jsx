@@ -64,7 +64,7 @@ function App() {
       percentageIncrease: 1.67,
     },
   ];
-  
+
 
   // fake data, will be fed from API in the future
   const sampleGraphData = [
@@ -83,7 +83,15 @@ function App() {
       // Fetch Portfolio Data
       const fetchPortfolioData = async () => {
         try {
-          const response = await fetch(`${baseUrl}/portfolioData`);
+          const token = localStorage.getItem('token');
+          // const response = await fetch(`${baseUrl}/portfolio-data`);
+          const response = await fetch(`${baseUrl}/portfolio-data`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }
+          });
           if (!response.ok) throw new Error('Failed to fetch portfolio data');
           const data = await response.json();
           setPortfolioData(data);
@@ -109,7 +117,7 @@ function App() {
         fetchGraphData();
       }
     }
-  }, [currentUser, useMockData]); 
+  }, [currentUser, useMockData]);
 
   useEffect(() => {
     const user = localStorage.getItem('user');
