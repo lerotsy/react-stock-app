@@ -9,7 +9,7 @@ const StockItem = ({ stock, isHottestStock }) => {
 
   return (
     <div className="stock-item" onClick={toggleModal}>
-      <span className="stock-name">{stock.name}</span>
+      <span className="stock-name">{stock.symbol}</span>
       <span className="stock-current-price">${stock.currentPrice.toFixed(2)}</span>
       {
         isHottestStock ? (
