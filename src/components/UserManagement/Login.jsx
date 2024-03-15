@@ -30,6 +30,9 @@ const Login = ({ onLogin }) => {
       }
 
       const data = await response.json();
+      if (data.error) {
+        throw new Error(data.error);
+      }
       localStorage.setItem('token', data.token);
       let userData = {
         'email': data.email,
@@ -45,17 +48,17 @@ const Login = ({ onLogin }) => {
   return (
     <div className="login-container">
       <form onSubmit={handleLogin} className="login-form">
-        <input 
-          type="text" 
-          placeholder="Email" 
-          value={email} 
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="login-input"
         />
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="login-input"
         />
