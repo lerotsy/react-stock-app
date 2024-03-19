@@ -5,6 +5,7 @@ import PortfolioOverview from './components/Portfolio/PortfolioOverview';
 import AuthService from './components/UserManagement/AuthService';
 import './App.css';
 import SearchBox from './components/Portfolio/SearchBox';
+import SearchResults from './components/Portfolio/SearchResults';
 
 const useMockData = process.env.REACT_APP_USE_MOCK_DATA === 'true';
 const baseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -101,20 +102,20 @@ function App() {
       };
 
       // Fetch Stock History
-      const fetchGraphData = async () => {
-        try {
-          const response = await fetch(`${baseUrl}/stockHistory`);
-          if (!response.ok) throw new Error('Failed to fetch stock history');
-          const data = await response.json();
-          setGraphData(data);
-        } catch (error) {
-          console.error("Error fetching stock history:", error);
-        }
-      };
+      // const fetchGraphData = async () => {
+      //   try {
+      //     const response = await fetch(`${baseUrl}/stockHistory`);
+      //     if (!response.ok) throw new Error('Failed to fetch stock history');
+      //     const data = await response.json();
+      //     setGraphData(data);
+      //   } catch (error) {
+      //     console.error("Error fetching stock history:", error);
+      //   }
+      // };
 
       if (currentUser) {
         fetchPortfolioData();
-        fetchGraphData();
+        // fetchGraphData();
       }
     }
   }, [currentUser, useMockData]);
@@ -153,6 +154,9 @@ function App() {
         <>
           <Header user={currentUser.username} onLogout={handleLogout} />
           <SearchBox onSearchResult={handleSearchResult} />
+          {searchResults.length > 0 ? ( // Conditional rendering based on search results
+            <SearchResults results={searchResults} />
+          ) : (<></>) }
           <PortfolioOverview portfolioData={portfolioData} hottestStocksData={sampleHottestStocksData} graphData={graphData} />
         </>
       ) : (
