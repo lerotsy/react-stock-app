@@ -1,15 +1,19 @@
 /* src/components/SearchResults.css */
 
-.search-results-container {
-  margin-top: 20px; /* Adjust based on your layout */
+ul.search-results-container {
+  margin-top: 7px; /* Adjust based on your layout */
+  list-style: none;
+  border: 1px solid #ccc;
+  max-width: 400px;
 }
 
 .search-result-item {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
+  /* border: 1px solid #ccc; */
+  text-align: left;
+  /* border-radius: 4px; */
+  /* margin-bottom: 10px; */
+  background-color: #fff;
 }
 
 .search-result-item a {
